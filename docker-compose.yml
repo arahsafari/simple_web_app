@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  distroless-efishery:
+    container_name: distroless-efishery
+    hostname: "distroless-efishery"
+    build:
+      context: ./distroless
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "${PORT_DISTROLESS}:3000"
+
+  alpine-efishery:
+    container_name: alpine-efishery
+    hostname: "alpine-efishery"
+    build:
+      context: ./alpine
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "${PORT_ALPINE}:3000"
